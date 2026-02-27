@@ -1,0 +1,81 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct NoDeArvore
+{
+    int valor;
+    struct NoDeArvore *filhoEsquerda;
+    struct NoDeArvore *filhoDireita;
+} TipoNoDeArvore;
+
+TipoNoDeArvore *inserir(TipoNoDeArvore *raiz, int valor)
+{
+    if (raiz == NULL)
+    {
+        TipoNoDeArvore *novo = (TipoNoDeArvore *) malloc(sizeof(TipoNoDeArvore));
+        
+        if (novo == NULL)
+        {
+            printf("Erro crítico: Falta de memória RAM!\n");
+            exit(1);
+        }
+        
+        novo->valor = valor;
+        novo->filhoEsquerda = NULL;
+        novo->filhoDireita = NULL;
+        
+        return novo;
+    }
+
+    if (valor < raiz->valor)
+    { raiz->filhoEsquerda = inserir(raiz->filhoEsquerda, valor); }
+    else
+    { raiz->filhoDireita = inserir(raiz->filhoDireita, valor); }
+    
+    return raiz; 
+}
+
+void preOrdem(TipoNoDeArvore *raiz)
+{
+    if (raiz != NULL)
+    {
+        printf("%d ", raiz->valor);
+        preOrdem(raiz->filhoEsquerda);
+        preOrdem(raiz->filhoDireita);
+    }
+}
+
+void liberarArvore(TipoNoDeArvore *raiz)
+{
+    if (raiz != NULL)
+    {
+        liberarArvore(raiz->filhoEsquerda);
+        liberarArvore(raiz->filhoDireita);
+        free(raiz); 
+    }
+}
+
+int main()
+{
+    TipoNoDeArvore *minhaArvore = NULL;
+
+    printf("\nIniciando a infraestrutura da Àrvore...\n");
+
+    minhaArvore = inserir(minhaArvore, 500); 
+    minhaArvore = inserir(minhaArvore, 250);
+    minhaArvore = inserir(minhaArvore, 750);
+    minhaArvore = inserir(minhaArvore, 100);
+    minhaArvore = inserir(minhaArvore, 300);
+
+    printf("\nLendo os dados em Pré-Ordem:\n");
+    printf("Resultado esperado: 500 250 100 300 750\n");
+    printf("Resultado obtido:   ");
+    preOrdem(minhaArvore);
+    printf("\n\n");
+
+    printf("Iniciando protocolo de limpeza de memória (Pós-Ordem)...\n");
+    liberarArvore(minhaArvore);
+    printf("Memória RAM liberada com sucesso. Zero memory leaks!\n\n");
+
+    return 0;
+}
