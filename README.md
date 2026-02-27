@@ -15,7 +15,8 @@
 ## 👩🏽‍💻 AUTORIA
 
 **Isadora de Souza Martins**
-Estudante de Engenharia de Computação
+
+`Estudante de Engenharia de Computação`
 
 - GitHub: [isamartins-engcomput](https://github.com/isamartins-engcomput)
 - LinkedIn: [Isadora Martins](https://www.linkedin.com/in/isadora-martins-611478332)
@@ -23,4 +24,3 @@ Estudante de Engenharia de Computação
 - E-mail institucional: isadora.martins2@estudante.ifms.edu.br
 
 ---
-# estrutura-dados2
