@@ -45,6 +45,16 @@ void preOrdem(TipoNoDeArvore *raiz)
     }
 }
 
+void posOrdem(TipoNoDeArvore *raiz)
+{
+    if (raiz != NULL)
+    {
+        posOrdem(raiz->filhoEsquerda);
+        posOrdem(raiz->filhoDireita);
+        printf("%d ", raiz->valor);
+    }
+}
+
 void liberarArvore(TipoNoDeArvore *raiz)
 {
     if (raiz != NULL)
@@ -59,7 +69,7 @@ int main()
 {
     TipoNoDeArvore *minhaArvore = NULL;
 
-    printf("\nIniciando a infraestrutura da Árvore...\n");
+    printf("\nIniciando a infraestrutura da Árvore...\n\n");
 
     minhaArvore = inserir(minhaArvore, 500); 
     minhaArvore = inserir(minhaArvore, 250);
@@ -67,13 +77,17 @@ int main()
     minhaArvore = inserir(minhaArvore, 100);
     minhaArvore = inserir(minhaArvore, 300);
 
-    printf("\nLendo os dados em Pré-Ordem:\n");
-    printf("Resultado esperado: 500 250 100 300 750\n");
-    printf("Resultado obtido:   ");
+    printf("Árvore bruta após as inserções (Pré-Ordem): "); // Raiz → Esquerda → Direita
     preOrdem(minhaArvore);
     printf("\n\n");
 
-    printf("Iniciando protocolo de limpeza de memória (Pós-Ordem)...\n");
+    printf("Lendo os dados em Pós-Ordem...\n\n");
+    printf("Resultado esperado: 100 300 250 750 500\n");
+    printf("Resultado obtido:   ");
+    posOrdem(minhaArvore);
+    printf("\n\n");
+
+    printf("Iniciando protocolo de limpeza de memória...\n");
     liberarArvore(minhaArvore);
     printf("Memória RAM liberada com sucesso. Zero memory leaks!\n\n");
 

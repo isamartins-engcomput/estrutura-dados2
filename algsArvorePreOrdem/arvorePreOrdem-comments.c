@@ -76,7 +76,7 @@ int main()
     // A árvore nasce como um ponteiro nulo (totalmente vazia na memória).
     TipoNoDeArvore *minhaArvore = NULL;
 
-    printf("\nIniciando a infraestrutura da Àrvore...\n");
+    printf("\nIniciando a infraestrutura da Árvore...\n");
 
     // Construindo a hierarquia. O primeiro a entrar (500) torna-se a raiz absoluta.
     minhaArvore = inserir(minhaArvore, 500); 

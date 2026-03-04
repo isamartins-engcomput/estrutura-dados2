@@ -1,6 +1,6 @@
 # 🧩 REPO ESTRUTURA DE DADOS 2 - 2026/1 - ENG.COMPUT 4
 
-![ED2](capaED2.png)
+![ED2](./screenshots/capaED2.png)
 
 <div align="center">
 

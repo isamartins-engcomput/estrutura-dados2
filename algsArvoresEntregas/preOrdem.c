@@ -59,7 +59,7 @@ int main()
 {
     TipoNoDeArvore *minhaArvore = NULL;
 
-    printf("\nIniciando a infraestrutura da Árvore...\n");
+    printf("\nIniciando a infraestrutura da Árvore...\n\n");
 
     minhaArvore = inserir(minhaArvore, 500); 
     minhaArvore = inserir(minhaArvore, 250);
@@ -67,13 +67,17 @@ int main()
     minhaArvore = inserir(minhaArvore, 100);
     minhaArvore = inserir(minhaArvore, 300);
 
-    printf("\nLendo os dados em Pré-Ordem:\n");
+    printf("Árvore bruta após as inserções (Pré-Ordem): "); // Raiz → Esquerda → Direita
+    preOrdem(minhaArvore);
+    printf("\n\n");
+
+    printf("Lendo os dados em Pré-Ordem...\n\n");
     printf("Resultado esperado: 500 250 100 300 750\n");
     printf("Resultado obtido:   ");
     preOrdem(minhaArvore);
     printf("\n\n");
 
-    printf("Iniciando protocolo de limpeza de memória (Pós-Ordem)...\n");
+    printf("Iniciando protocolo de limpeza de memória...\n");
     liberarArvore(minhaArvore);
     printf("Memória RAM liberada com sucesso. Zero memory leaks!\n\n");
 
